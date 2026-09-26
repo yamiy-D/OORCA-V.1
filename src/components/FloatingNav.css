@@ -1,0 +1,234 @@
+.marine-nav-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  cursor: default;
+  animation: marineBackdropFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes marineBackdropFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.marine-nav-wrapper {
+  position: fixed;
+  z-index: 9999;
+  touch-action: none;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* =========================================================================
+   STEP 1: PREVIOUS DARK MAIN BUBBLE STYLES (COMMENTED OUT FOR EASY UPDATE LATER)
+   ========================================================================= */
+/*
+.main-bubble {
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: rgba(10, 10, 12, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 1px 1px rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f8fafc;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: radarPulse 6s infinite ease-in-out;
+}
+*/
+
+/* STEP 2: Selected Element 2 (CSS selector 2: High-Visibility Electric Azure Main Navigation Bubble) */
+/* Designed to pop dramatically on both dark and light pages without using red or green */
+.main-bubble,
+#marine-nav-main-bubble {
+  position: absolute;
+  width: 58px;
+  height: 58px;
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: linear-gradient(135deg, #38bdf8 0%, #0284c7 45%, #1e40af 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 2.5px solid #ffffff;
+  box-shadow: 0 0 24px rgba(14, 165, 233, 0.75), 0 12px 35px rgba(0, 0, 0, 0.8), inset 0 2px 4px rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.25s ease;
+  animation: radarPulse 4s infinite ease-in-out;
+}
+
+/* STEP 3: Hover State for Navigation Bubble */
+.main-bubble:hover,
+#marine-nav-main-bubble:hover {
+  background: linear-gradient(135deg, #7dd3fc 0%, #0ea5e9 45%, #1d4ed8 100%);
+  box-shadow: 0 0 35px rgba(56, 189, 248, 0.95), 0 14px 42px rgba(0, 0, 0, 0.9), inset 0 2px 6px rgba(255, 255, 255, 0.7);
+  border-color: #ffffff;
+  color: #ffffff;
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+/* STEP 4: Active Dragging State */
+.main-bubble.dragging,
+#marine-nav-main-bubble.dragging {
+  cursor: grabbing !important;
+  animation: none;
+  transform: translate(-50%, -50%) scale(1.12);
+  border-color: #ffffff;
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 50%, #1e3a8a 100%);
+  box-shadow: 0 0 45px rgba(14, 165, 233, 1), 0 20px 55px rgba(0, 0, 0, 0.95), inset 0 2px 6px rgba(255, 255, 255, 0.8);
+}
+
+/* STEP 5: Open State (When navigation wheel is unfurled) */
+.main-bubble.open,
+#marine-nav-main-bubble.open {
+  border-color: #ffffff;
+  background: linear-gradient(135deg, #0369a1 0%, #1e3a8a 60%, #0f172a 100%);
+  box-shadow: 0 0 30px rgba(14, 165, 233, 0.8), 0 16px 48px rgba(0, 0, 0, 0.95), inset 0 2px 5px rgba(255, 255, 255, 0.4);
+}
+
+/* STEP 6: Selected Element 1 (CSS selector 1: Navigation Radar SVG Icon) */
+.radar-icon,
+#marine-nav-main-bubble > svg {
+  width: 26px;
+  height: 26px;
+  color: #ffffff;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.25s ease;
+}
+
+.radar-icon.rotate,
+#marine-nav-main-bubble > svg.rotate {
+  transform: rotate(45deg);
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.8));
+}
+
+.nav-item {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+  background: rgba(14, 14, 18, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  pointer-events: none;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.25s ease,
+              background-color 0.2s ease,
+              border-color 0.2s ease,
+              box-shadow 0.2s ease,
+              color 0.2s ease;
+}
+
+.nav-item.open {
+  pointer-events: auto;
+}
+
+.nav-item-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.85);
+}
+
+.nav-item:hover .nav-item-inner {
+  transform: scale(1.1);
+}
+
+.nav-item.active {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: #ffffff;
+  color: #ffffff;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3), 0 12px 30px rgba(0, 0, 0, 0.9);
+}
+
+.nav-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.nav-tooltip {
+  position: absolute;
+  top: -32px;
+  background: rgba(10, 10, 12, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 500;
+  color: #f8fafc;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  letter-spacing: 0.02em;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.8);
+}
+
+.nav-item:hover .nav-tooltip {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================================================
+   STEP 7: RADAR PULSE ANIMATION (COMMENTED OUT PREVIOUS FAINT PULSE FOR EASY UPDATE)
+   ========================================================================= */
+/*
+@keyframes radarPulse {
+  0% { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.08); }
+  50% { box-shadow: 0 12px 35px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.2); }
+  100% { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.08); }
+}
+*/
+
+/* STEP 8: High-Visibility Radiant Beacon Pulse (No green/red, vibrant electric azure) */
+@keyframes radarPulse {
+  0% {
+    box-shadow: 0 0 16px rgba(14, 165, 233, 0.65), 0 10px 30px rgba(0, 0, 0, 0.8), inset 0 2px 4px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 32px rgba(14, 165, 233, 0.95), 0 0 55px rgba(56, 189, 248, 0.4), 0 14px 40px rgba(0, 0, 0, 0.9), inset 0 2px 5px rgba(255, 255, 255, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 16px rgba(14, 165, 233, 0.65), 0 10px 30px rgba(0, 0, 0, 0.8), inset 0 2px 4px rgba(255, 255, 255, 0.5);
+  }
+}

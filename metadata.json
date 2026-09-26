@@ -1,0 +1,8 @@
+{
+  "name": "Remix Remix OORCA — Marine Environmental Intelligence",
+  "description": "AI-Powered Marine Environmental Intelligence, Oil Spill Detection, and Liability Assessment Platform.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

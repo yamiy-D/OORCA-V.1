@@ -1,0 +1,201 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Geist', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #000000;
+    color: #f8fafc;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    background-color: #000000;
+    color: #f8fafc;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+.font-geist {
+  font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.font-mono-code {
+  font-family: 'Geist Mono', 'JetBrains Mono', monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.font-display {
+  font-family: 'Geist', 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -0.025em;
+}
+
+/* Custom CSS Animation from MotionSites */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-slide-up {
+  animation: fadeSlideUp 0.8s ease both;
+}
+
+/* Custom Oceanic Command Grids & Visual Effects */
+.ocean-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.ocean-grid-dense {
+  background-size: 24px 24px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+}
+
+.ocean-radial-mask {
+  mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+}
+
+@keyframes radarSweep {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes satelliteScan {
+  0% {
+    top: -10%;
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.6;
+  }
+  85% {
+    opacity: 0.6;
+  }
+  100% {
+    top: 110%;
+    opacity: 0;
+  }
+}
+
+@keyframes pingSlow {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(2.0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+@keyframes wavePulse {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-3px) scale(1.01);
+  }
+}
+
+.animate-radar {
+  animation: radarSweep 9s linear infinite;
+}
+
+.animate-satellite-scan {
+  animation: satelliteScan 7s ease-in-out infinite;
+}
+
+.animate-ping-slow {
+  animation: pingSlow 3.2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.animate-wave-pulse {
+  animation: wavePulse 6s ease-in-out infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* Custom Oil Spill Around Vessel Visual Effects */
+@keyframes oilSheenPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.95;
+  }
+}
+
+@keyframes breachLeakPulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 1;
+    stroke-width: 1.5px;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+    stroke-width: 0.5px;
+  }
+}
+
+.animate-oil-sheen {
+  animation: oilSheenPulse 4s ease-in-out infinite;
+}
+
+.animate-breach-leak {
+  animation: breachLeakPulse 2s cubic-bezier(0.1, 0.7, 0.1, 1) infinite;
+}
+
+/* Custom MapLibre Vessel & Oil Spill Popup */
+.maplibregl-popup-content {
+  background: rgba(0, 0, 0, 0.94) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.9) !important;
+  backdrop-filter: blur(16px) !important;
+  padding: 12px 14px !important;
+  color: #f8fafc !important;
+}
+
+.maplibregl-popup-tip {
+  border-top-color: rgba(255, 255, 255, 0.15) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.15) !important;
+}
