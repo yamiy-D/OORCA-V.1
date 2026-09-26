@@ -177,7 +177,7 @@ Before running the application, ensure the following software is installed on yo
    GEMINI_API_KEY=
 
    # Live Weather Intelligence (OpenWeatherMap API)
-   OPENWEATHER_API_KEY=8c2243561426057c6e8eadd1067ef282
+   OPENWEATHER_API_KEY=
 
    # Global Fishing Watch (GFW) Maritime AIS Vessel Tracking
    GFW_API_TOKEN=
