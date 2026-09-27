@@ -1,4 +1,4 @@
-# 🐋 OORCA
+# OORCA
 
 ### Oceanic Oil Reconnaissance, Correlation & Attribution
 
@@ -13,70 +13,70 @@ OORCA brings satellite observations, oceanographic conditions, vessel movement, 
 
 The basic question is simple:
 
-> **An oil slick was observed. Where did it come from, how could it have moved, and which vessels were relevant during that window?**
+> An oil slick was observed. Where did it come from, how could it have moved, and which vessels were relevant during that window?
 
-OORCA is designed around **Smart India Hackathon Problem Statement 26143**, associated with the **National Technical Research Organisation (NTRO)**.
-
----
-
-# 🚀 LIVE DEMO
-
-> ## 🌊 OORCA is live on the web
->
-> **Explore the OORCA investigation workspace:**
->
-> 👉 **[Launch OORCA Live Demo](https://oorca-v1-foemtitw9-yamiyprivate-6825.vercel.app/)**
->
-> The live deployment is provided as an **interactive feature demonstration** of OORCA's investigation workflow and interface. It showcases selected capabilities including spill visualisation, drift simulation, AIS correlation, trajectory analysis and environmental layers.
->
-> **Important:** The public demo is a limited deployment intended for feature exploration and demonstration. It does **not** represent the complete operational OORCA system and does not contain the full real-time data pipeline, continuous data ingestion or complete AI/ML capabilities.
->
-> The full OORCA architecture is designed to work with live satellite observations, AIS feeds, environmental data and production-grade processing services. Availability of these capabilities depends on the deployment environment, external data providers and required API services.
->
-> **The live demo lets you explore what OORCA looks and feels like, while the full system represents the complete investigation platform.**
->
-> 🟢 **Public Demo:** Available  
-> 🛰️ **Full Real-Time Data Pipeline:** Deployment dependent  
-> 🧠 **Complete AI/ML Pipeline:** Development / production integration  
-> 🌐 **Purpose:** Feature demonstration & investigation workflow
+OORCA is designed around Smart India Hackathon Problem Statement 26143, associated with the National Technical Research Organisation (NTRO).
 
 ---
 
-# ✦ What OORCA does
+# LIVE DEMO
+
+## OORCA is live on the web
+
+Explore the OORCA investigation workspace:
+
+**[Launch OORCA Live Demo](https://oorca-v1-foemtitw9-yamiyprivate-6825.vercel.app/)**
+
+The live deployment is provided as an interactive feature demonstration of OORCA's investigation workflow and interface. It showcases selected capabilities including spill visualisation, drift simulation, AIS correlation, trajectory analysis and environmental layers.
+
+**Important:** The public demo is a limited deployment intended for feature exploration and demonstration. It does not represent the complete operational OORCA system and does not contain the full real-time data pipeline, continuous data ingestion or complete AI/ML capabilities.
+
+The full OORCA architecture is designed to work with live satellite observations, AIS feeds, environmental data and production-grade processing services. Availability of these capabilities depends on the deployment environment, external data providers and required API services.
+
+The live demo lets you explore what OORCA looks and feels like, while the full system represents the complete investigation platform.
+
+**Public Demo:** Available  
+**Full Real-Time Data Pipeline:** Deployment dependent  
+**Complete AI/ML Pipeline:** Development / production integration  
+**Purpose:** Feature demonstration and investigation workflow
+
+---
+
+# What OORCA does
 
 | Capability | Purpose |
 |---|---|
-| 🛰️ **Oil-Spill Detection** | Work with SAR / EO imagery to identify and characterise potential slicks |
-| 🌊 **Drift Simulation** | Model spill movement using wind, currents, and marine conditions |
-| ⏪ **Hindcasting** | Work backwards from an observed slick to estimate a possible origin and time window |
-| ⏩ **Forecasting** | Project possible future spill movement |
-| 🚢 **AIS Correlation** | Reconstruct vessel traffic around the estimated source window |
-| 🎯 **Vessel Attribution** | Filter and score relevant candidate vessels |
-| 🌱 **Impact Analysis** | Examine potential exposure of marine and coastal resources |
-| 🗺️ **Geospatial Workspace** | Explore the complete investigation on an interactive map |
+| Oil-Spill Detection | Identify and characterise potential oil slicks from SAR / EO imagery |
+| Drift Simulation | Model spill movement using wind, currents and marine conditions |
+| Hindcasting | Estimate a possible spill origin and time window |
+| Forecasting | Project possible future movement of the spill |
+| AIS Correlation | Reconstruct vessel traffic around the estimated source window |
+| Vessel Attribution | Filter and score relevant candidate vessels |
+| Impact Analysis | Examine potential exposure of marine and coastal resources |
+| Geospatial Workspace | Explore the investigation through an interactive map |
 
 ---
 
-# 🔬 Investigation Workflow
+# Investigation Workflow
 
 ```mermaid
 flowchart LR
-    A["🛰️ Satellite Imagery"] --> B["Oil Spill Detection"]
+    A["Satellite Imagery"] --> B["Oil Spill Detection"]
     B --> C["Slick Characterisation"]
 
-    C --> D["🌬️ Wind + 🌊 Ocean Currents"]
+    C --> D["Wind + Ocean Currents"]
     D --> E["Hindcast"]
 
-    E --> F["Estimated Origin<br/>+ Time Window"]
+    E --> F["Estimated Origin + Time Window"]
     E --> G["Forecast"]
 
-    F --> H["🚢 Historical AIS"]
+    F --> H["Historical AIS"]
     H --> I["Traffic Filtering"]
 
     I --> J["Spatio-Temporal Correlation"]
     J --> K["Candidate Vessel Scoring"]
 
-    G --> L["🌱 Environmental Impact"]
+    G --> L["Environmental Impact"]
     K --> L
 
     L --> M["Investigation Workspace"]
